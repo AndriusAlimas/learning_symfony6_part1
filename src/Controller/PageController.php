@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageController
@@ -9,6 +10,6 @@ class PageController
     #[Route('/')]
    public function homepage()
    {
-    die('Hello!');
+    return new Response("Hello World!");
    }
 }
