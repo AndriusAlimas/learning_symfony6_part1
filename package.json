@@ -1,0 +1,37 @@
+{
+  "name": "learning_symfony6_part1",
+  "version": "1.0.0",
+  "description": "learning_symfony6_part1 - Symfony Docker Application",
+  "scripts": {
+    "fresh-start": "node fresh-start.js",
+    "fresh-start:quick": "node fresh-start.js --skip-cleanup",
+    "fresh-start:no-cache": "node fresh-start.js --no-cache",
+    "new-project": "node fresh-start-new-project.js",
+    "setup": "npm run fresh-start",
+    "setup:env": "node -e \"const fs = require('fs'); if (!fs.existsSync('.env.local')) { fs.copyFileSync('.env.example', '.env.local'); console.log('✅ Created .env.local from .env.example'); } else { console.log('✅ .env.local already exists'); }\"",
+    "build": "docker-compose build --no-cache",
+    "up": "docker-compose up -d",
+    "down": "docker-compose down",
+    "stop": "docker-compose stop",
+    "start": "docker-compose start",
+    "restart": "npm run down && npm run up",
+    "logs": "docker-compose logs -f app",
+    "shell": "docker-compose exec app bash",
+    "clean": "docker-compose down -v --remove-orphans && docker system prune -f && docker volume prune -f",
+    "clean-all": "docker-compose down -v --remove-orphans && docker system prune -a -f && docker volume prune -f",
+    "status": "docker-compose ps",
+    "composer": "docker-compose exec app composer",
+    "console": "docker-compose exec app bin/console",
+    "cache-clear": "docker-compose exec app bin/console cache:clear",
+    "dev": "npm run up && npm run logs",
+    "test:health": "node -e \"setTimeout(() => { require('http').get('http://localhost:8080', (res) => { console.log('✅ Application is running at http://localhost:8080'); console.log('🎉 Setup complete! Visit http://localhost:8080 in your browser'); process.exit(0); }).on('error', (e) => { console.log('❌ Application health check failed:', e.message); process.exit(1); }); }, 3000);\"",
+    "check:docker": "node -e \"require('child_process').exec('docker info', (err) => { if (err) { console.log('❌ Docker is not running. Please start Docker Desktop'); process.exit(1); } else { console.log('✅ Docker is running'); } });\""
+  },
+  "keywords": [
+    "symfony",
+    "docker",
+    "php"
+  ],
+  "author": "",
+  "license": "MIT"
+}
