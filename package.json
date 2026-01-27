@@ -6,7 +6,6 @@
     "fresh-start": "node fresh-start.js",
     "fresh-start:quick": "node fresh-start.js --skip-cleanup",
     "fresh-start:no-cache": "node fresh-start.js --no-cache",
-    "new-project": "node fresh-start-new-project.js",
     "setup": "npm run fresh-start",
     "setup:env": "node -e \"const fs = require('fs'); if (!fs.existsSync('.env.local')) { fs.copyFileSync('.env.example', '.env.local'); console.log('✅ Created .env.local from .env.example'); } else { console.log('✅ .env.local already exists'); }\"",
     "build": "docker-compose build --no-cache",
