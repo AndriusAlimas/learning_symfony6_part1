@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use function Symfony\Component\String\u;
+
 class PageController
 {
     #[Route('/')]
@@ -15,6 +17,9 @@ class PageController
    #[Route('/city/{slug}')]
    public function city(string $slug):Response
    {
-    return new Response("City: {$slug}");
+
+   $title =  u(str_replace('-',' ',$slug))->title(true);
+    
+   return new Response("City: {$title}");
    }
 }
