@@ -12,4 +12,9 @@ class PageController
    {
     return new Response("Hello World!");
    }
+   #[Route('/city/{slug}')]
+   public function city(string $slug):Response
+   {
+    return new Response("City: {$slug}");
+   }
 }
