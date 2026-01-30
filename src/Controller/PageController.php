@@ -15,11 +15,15 @@ class PageController
     return new Response("Hello World!");
    }
    #[Route('/city/{slug}')]
-   public function city(string $slug):Response
+   public function city(?string $slug= null):Response
    {
-
-   $title =  u(str_replace('-',' ',$slug))->title(true);
+   if($slug){
+      $title =  u(str_replace('-',' ',$slug))->title(true);
+   }else{
+     $title = "All cities";
+   }
+  
     
-   return new Response("City: {$title}");
+   return new Response($title);
    }
 }
