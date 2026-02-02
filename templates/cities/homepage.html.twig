@@ -1,0 +1,12 @@
+<h1>{{ title }}</h1>
+
+{#TODO: add image of city #}
+
+<div>
+  Cities of country {{ country }}:
+    <ul>
+        {% for city in cities %} 
+        <li>{{city.name}} Population: {{city.population}}</li>
+        {% endfor %}
+    </ul>
+</div>
