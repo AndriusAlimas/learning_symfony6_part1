@@ -39,13 +39,12 @@ class CitiesController extends AbstractController
    #[Route('/city/{slug}')]
    public function city(?string $slug= null):Response
    {
-   if($slug){
-      $title =  u(str_replace('-',' ',$slug))->title(true);
-   }else{
-     $title = "All cities";
-   }
-  
+   
+   $city = $slug ? u(str_replace('-',' ',$slug))->title(true) : null;
     
-   return new Response($title);
+   return $this->render('cities/city.html.twig',
+   [
+      'city'=>$city,
+   ]);
    }
 }
