@@ -28,7 +28,7 @@ class CitiesController extends AbstractController
       ['name' => 'Sheffield', 'population' => 584853],
       ];
 
-      dd($cities);
+      // dd($cities);
     return $this->render('cities/homepage.html.twig',
     [
       'title'=>'All cities',

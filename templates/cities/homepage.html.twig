@@ -11,7 +11,7 @@
   Cities of country {{ country }}:
     <ul>
         {% for city in cities %} 
-        <li>{{city.name|upper}} Population: {{city.population}}</li>
+        <li><span class="city-name">{{city.name|upper}}</span> Population: {{city.population}}</li>
         {% endfor %}
     </ul>
 </div>
