@@ -69,13 +69,13 @@ footer {
   box-shadow: 0 -2px 12px rgba(99, 102, 241, 0.06);
 }
 
-nav {
+nav:not(.navbar) {
   display: flex;
   justify-content: center;
   gap: 2em;
   margin-bottom: 1.5em;
 }
-nav a {
+nav:not(.navbar) a {
   color: #6366f1;
   font-weight: 600;
   text-decoration: none;
@@ -85,7 +85,7 @@ nav a {
     background 0.2s,
     color 0.2s;
 }
-nav a:hover {
+nav:not(.navbar) a:hover {
   background: #e0e7ff;
   color: #232946;
 }
@@ -216,8 +216,31 @@ ol {
   h1 {
     font-size: 1.4em;
   }
-  nav {
+  nav:not(.navbar) {
     flex-direction: column;
     gap: 0.5em;
   }
+}
+
+/* Glassy light navbar that sits on the header gradient */
+.navbar-glass {
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  width: min(1100px, 92%);
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 6px 24px rgba(44, 62, 80, 0.12);
+}
+.navbar-glass .navbar-brand,
+.navbar-glass .nav-link {
+  color: #ffffff !important;
+}
+.navbar-glass .nav-link:hover {
+  color: #e0e7ff !important;
+}
+.navbar-glass .dropdown-menu {
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
