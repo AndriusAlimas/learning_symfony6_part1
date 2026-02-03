@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cities in {{ country }}{% endblock %}
+{% block title %}Cities in {{ country }}|{{ parent() }}{% endblock %}
 
 {% block body %}
 <h1>{{ title }}</h1>
