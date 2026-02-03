@@ -1,3 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cities in {{ country }}{% endblock %}
+
+{% block body %}
 <h1>{{ title }}</h1>
 
 {#TODO: add image of city #}
@@ -6,7 +11,8 @@
   Cities of country {{ country }}:
     <ul>
         {% for city in cities %} 
-        <li>{{city.name}} Population: {{city.population}}</li>
+        <li>{{city.name|upper}} Population: {{city.population}}</li>
         {% endfor %}
     </ul>
 </div>
+{% endblock %}
